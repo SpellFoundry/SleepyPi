@@ -12,5 +12,5 @@ After downloading name the folder 'Sleepy Pi' and install in the Arduino librari
 
 
 [Sleepy Pi]: http://spellfoundry.com/sleepy-pi/
-[ds1374RTC]: http://github.com/SpellFoundry/DS1374RTC.git
-[lowpower]: http://github.com/rocketscream/Low-Power
+[ds1374RTC]: https://github.com/SpellFoundry/DS1374RTC.git
+[lowpower]: https://github.com/rocketscream/Low-Power

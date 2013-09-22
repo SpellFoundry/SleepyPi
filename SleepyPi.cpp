@@ -13,9 +13,9 @@
   be present in the libraries directory:
 
   - lowpower (http://www.rocketscream.com/blog/2011/07/04/lightweight-low-power-arduino-library/)
-  			 (http://github.com/rocketscream/Low-Power)
+  			 (https://github.com/rocketscream/Low-Power)
   
-  - ds1374RTC (http://github.com/SpellFoundry/DS1374RTC.git)
+  - ds1374RTC (https://github.com/SpellFoundry/DS1374RTC.git)
 
 
   License
