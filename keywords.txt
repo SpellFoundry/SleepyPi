@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map For SleepyPiClass
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+enableExtPower		KEYWORD2
+enablePiPower		KEYWORD2
+piShutdown			KEYWORD2
+enableWakeupAlarm	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+SleepyPi	KEYWORD2
+#######################################
+# Constants (LITERAL1)
+#######################################
