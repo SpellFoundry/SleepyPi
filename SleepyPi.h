@@ -15,7 +15,7 @@
 #include <Wire.h>
 #include <LowPower.h>
 
-#define DEBUG_MESSAGES
+// #define DEBUG_MESSAGES
 
 #define kFAILSAFETIME_MS		30000		// Failsafe shutdown time in milliseconds
 #define kONBUTTONTIME_MS		1000		// 
