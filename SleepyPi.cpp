@@ -255,6 +255,7 @@ bool SleepyPiClass::checkPiStatus(bool forceShutdownIfNotRunning)
 	if(handShake > 0) {
 		// RasPi is still running
 		pi_running = true;
+		delay(50);
 		return true;
 	}
 	else{
@@ -264,7 +265,10 @@ bool SleepyPiClass::checkPiStatus(bool forceShutdownIfNotRunning)
 			if(pi_running == true){
 				// Pi has been running and now isn't
 				// so cut the power
+				delay(2000);
 				SleepyPiClass::enablePiPower(false);
+				// Remove any Commands for the Sleepy Pi to shutdown
+				digitalWrite(CMD_PI_TO_SHDWN_PIN,LOW);
 				pi_running = false;
 			}
 		}
@@ -316,6 +320,8 @@ void SleepyPiClass::piShutdown(bool forceShutdown)
 		// Switch off the Pi
 		delay(5000); // delay to make sure the Pi has finished shutting down
 		SleepyPiClass::enablePiPower(false);
+		// Remove Command for the Sleepy Pi to shutdown
+		digitalWrite(CMD_PI_TO_SHDWN_PIN,LOW);
 	}
 
 	return;
