@@ -14,7 +14,7 @@
 
 
 #define kBUTTON_POWEROFF_TIME_MS   2000
-#define kBUTTON_FORCEOFF_TIME_MS   10000
+#define kBUTTON_FORCEOFF_TIME_MS   8000
 
 
 // States
@@ -63,11 +63,11 @@ void setup()
   SleepyPi.enablePiPower(false);  
   SleepyPi.enableExtPower(false);
   
-   // Allow wake up triggered by button press or Wdt timeout 
+   // Allow wake up triggered by button press
   attachInterrupt(1, button_isr, LOW);    // button pin 
   
   // initialize serial communication: In Arduino IDE use "Serial Monitor"
-  Serial.begin(9600);
+  //Serial.begin(9600);
   
   // SleepyPi.simulationMode = true;  // Don't actually shutdown
   
@@ -91,13 +91,11 @@ void loop()
         buttonPressed = false;  
         switch(buttonState) { 
           case eBUTTON_RELEASED:
-              // Button pressed 
-              Serial.println("Button Pressed");             
+              // Button pressed           
               timePress = millis();             
               pi_running = SleepyPi.checkPiStatus(false);
               if(pi_running == false){  
                   // Switch on the Pi
-                  Serial.println("Pi On");
                   SleepyPi.enablePiPower(true);
                   SleepyPi.enableExtPower(true);   
               }          
@@ -107,7 +105,6 @@ void loop()
               break;
           case eBUTTON_PRESSED:
               // Button Released
-              Serial.println("Button Released");
               unsigned long buttonTime;
               time = millis();
               buttonState = eBUTTON_RELEASED;
@@ -118,21 +115,16 @@ void loop()
                   if(buttonTime > kBUTTON_FORCEOFF_TIME_MS){
                      // Force Pi Off               
                      SleepyPi.enablePiPower(false);
-                     SleepyPi.enableExtPower(false);
-                     Serial.println("Force Off"); 
-                     // digitalWrite(LED_PIN,LOW);             
+                     SleepyPi.enableExtPower(false);         
                   } else if (buttonTime > kBUTTON_POWEROFF_TIME_MS){
                       // Start a shutdown
-                      Serial.println("Pi Shutdown");
                       SleepyPi.piShutdown(true);
-                      SleepyPi.enableExtPower(false);
-                      // digitalWrite(LED_PIN,LOW);               
+                      SleepyPi.enableExtPower(false);            
                   } else { 
                      // Button not held off long - Do nothing
                   } 
               } else {
                   // Pi not running  
-                  Serial.println("Pi not running"); 
               }
               digitalWrite(LED_PIN,LOW);            
               attachInterrupt(1, button_isr, LOW);    // button pin       
