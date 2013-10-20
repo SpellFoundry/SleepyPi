@@ -2,6 +2,8 @@
 // Simple example showing how to wake up the Arduino from a falling
 // edge on a GPIO pin and then power up the Raspberry Pi
 //
+// NOTE: This library uses the "pinchangeint" library, which can be downloaded from
+// https://code.google.com/p/arduino-pinchangeint/
 
 // **** INCLUDES *****
 #include "SleepyPi.h"
